@@ -59,36 +59,6 @@ print("^^ discard beginning")
 # Init Discard  Temp Pile
 discard_temp_pile = Card.Player("Discard")
 
-
-
-# # Bullet
-#
-# # Ready state = cant see bullet on screen, else in "fire"
-# bulletImg = pygame.image.load('bullet.png')
-# bulletX = 0
-# bulletY = 480
-# bulletXchange = 0
-# bulletYchange = 10
-# bullet_state = "ready"
-#
-# # Score
-# score_value = 0
-# font = pygame.font.Font('freesansbold.ttf',32)
-#
-# textX = 10
-# textY = 10
-#
-# # Gamer over text
-# over_font = pygame.font.Font('freesansbold.ttf',64)
-# def show_score(x,y):
-#     # render then blit
-#     score = font.render("Score: " + str(score_value), True, (255,255,255))
-#     screen.blit(score,(x,y))
-#
-# def game_over_text():
-#     over_text= over_font.render("Game Over " , True, (255, 255, 255))
-#     screen.blit(over_text, (200, 250))
-#
 class Cardhand(pygame.sprite.Sprite):
     def __init__(self, image_name):
         # parent class constructor
@@ -283,19 +253,6 @@ def calcScores(caller, opponent):
         return [True,score_player1,score_player2]
     else:
         return [False,score_player1,score_player2]
-# def fire_bullet(x, y):
-#     global bullet_state
-#     bullet_state = "fire"
-#     screen.blit(bulletImg, (x + 16, y + 10))
-#
-#
-# def isCollision(hand1X, hand1Y, bulletX, bulletY):
-#     distance = math.hypot(hand1X - bulletX, hand1Y - bulletY)
-#     if distance < 27:
-#         return True
-#     else:
-#         return False
-
 
 # Game Loop
 running = True
@@ -535,69 +492,6 @@ while running:
                         print(total_score_player2)
                         print("Player2 ^^")
 
-
-    #         # if keystroke left or right
-    #         if event.type == pygame.KEYDOWN:
-    #             # print("keystroke pressed")
-    #             if event.key == pygame.K_LEFT:
-    #                 playerXchange = -5
-    #             if event.key == pygame.K_RIGHT:
-    #                 playerXchange = 5
-    #             if event.key == pygame.K_SPACE:
-    #                 if bullet_state is "ready":
-    #                     bullet_Sound = mixer.Sound('laser.wav')
-    #                     bullet_Sound.play()
-    #                     # get current x of spaceship so bullet doesnt follow
-    #                     bulletX = playerX
-    #                     fire_bullet(bulletX, bulletY)
-    #         if event.type == pygame.KEYUP:
-    #             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-    #                 playerXchange = 0.0
-    #     # check player mvnt no oob
-    #     playerX += playerXchange
-    #
-    #     if playerX <= 0:
-    #         playerX = 0
-    #     elif playerX >= 736:
-    #         playerX = 736
-    # hand1 movement
-    # for i in range(len(player1.hand)):
-    # # Game over
-    # if hand1Y.i[0] > 440:
-    #     for j in player1.hand:
-    #         hand1Y[j] = 2000
-    #     game_over_text()
-    #     break
-    #
-    # hand1X[i] += hand1Xchange[i]
-    # if hand1X[i] <= 0:
-    #     hand1Xchange[i] = 3
-    #     hand1Y[i] += hand1Ychange[i]
-    # elif hand1X[i] >= 736:
-    #     hand1Xchange[i] = -3
-    #     hand1Y[i] += hand1Ychange[i]
-    # # Collision
-    # collision = isCollision(hand1X[i], hand1Y[i], bulletX, bulletY)
-    # if collision:
-    #     explosion_Sound = mixer.Sound('explosion.wav')
-    #     explosion_Sound.play()
-    #     bulletY = 480
-    #     bullet_state = "ready"
-    #     score_value += 1
-    #     hand1X[i] = random.randint(0, 735)
-    #     hand1Y[i] = (random.randint(50, 150))
-
-    # hand1_img(hand1X[i], hand1Y[i], i)
-    #     # bullet mvnt
-    #     if bulletY <= 0:
-    #         bulletY = 480
-    #         bullet_state = "ready"
-    #     if bullet_state is "fire":
-    #         fire_bullet(bulletX, bulletY)
-    #         bulletY -= bulletYchange
-    #
-    #
-    #
     # deck_img(deckX, deckY)
     # discard_pile_img(discardX, discardY)
     hand_player1_list.draw(screen)
